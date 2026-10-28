@@ -1,0 +1,28 @@
+[project]
+name = "fiducial-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mathias Yde", email = "mathias.yde@hotmail.dk" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "black>=26.5.1",
+    "click>=8.5.0",
+    "dearpygui>=2.3.1",
+    "numpy>=2.5.3",
+    "opencv-contrib-python>=5.0.0.93",
+    "opencv-python>=5.0.0.93",
+    "pupil-apriltags>=1.0.4.post11",
+    "rich>=15.0.0",
+    "scipy>=1.18.1",
+    "toml>=0.10.2",
+]
+
+[project.scripts]
+fiducial-server = "fiducial_server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
