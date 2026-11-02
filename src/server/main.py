@@ -13,6 +13,8 @@ from server.utils import Marker, marker_from_detection
 @click.command()
 @click.option("--headless", is_flag=True, default=False)
 @click.option("--source", required=True)
+@click.option("--digits", default=6)
+def main(headless: bool, source: str, digits: int) -> None:
 def main(headless: bool, source: str) -> None:
     config = Config.from_file(Path("./src/fiducial_server/config.toml"))
     config.source = int(source) if source.isdigit() else source
