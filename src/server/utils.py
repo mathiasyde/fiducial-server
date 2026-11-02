@@ -1,7 +1,7 @@
 import pupil_apriltags as apriltags
 import scipy
 
-from server.marker import Marker
+type Marker = tuple[float, float, float, float, float, float]
 
 
 def marker_from_detection(detection: apriltags.Detection) -> Marker | None:
@@ -11,7 +11,7 @@ def marker_from_detection(detection: apriltags.Detection) -> Marker | None:
             detection.pose_R
         ).as_euler("xyz", degrees=True)
 
-        return Marker(x, y, z, euler_x, euler_y, euler_z)
+        return (x, y, z, euler_x, euler_y, euler_z)
     except Exception:  # noqa: BLE001
         return None
 

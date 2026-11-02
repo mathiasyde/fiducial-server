@@ -3,11 +3,11 @@ from pathlib import Path
 
 import click
 import cv2
+import numpy as np
 import pupil_apriltags as apriltags
 
 from server.config import Config
-from server.marker import Marker
-from server.utils import marker_from_detection
+from server.utils import Marker, marker_from_detection
 
 
 @click.command()
@@ -68,10 +68,7 @@ def main(headless: bool, source: str) -> None:
             # TODO: normalize coordinate systems through homography markers
 
             if len(markers) > 0:
-                message = ";".join(
-                    f"{id}:{marker.x},{marker.y},{marker.z},{marker.euler_x},{marker.euler_y},{marker.euler_z}"
-                    for id, marker in markers.items()
-                )
+                message = ';'.join(f"{id}:{','.join(f"{value:.{digits}f}" for value in marker)}" for id, marker in markers.items())
                 sock.sendto(message.encode("utf-8"), config.udp)
     finally:
         sock.close()
