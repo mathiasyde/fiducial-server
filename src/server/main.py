@@ -15,8 +15,7 @@ from server.utils import Marker, marker_from_detection
 @click.option("--source", required=True)
 @click.option("--digits", default=6)
 def main(headless: bool, source: str, digits: int) -> None:
-def main(headless: bool, source: str) -> None:
-    config = Config.from_file(Path("./src/fiducial_server/config.toml"))
+    config = Config.from_file(Path("./src/server/config.toml"))
     config.source = int(source) if source.isdigit() else source
 
     capture = cv2.VideoCapture(config.source)
