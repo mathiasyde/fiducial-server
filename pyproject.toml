@@ -17,6 +17,7 @@ dependencies = [
     "pupil-apriltags>=1.0.4.post11",
     "rich>=15.0.0",
     "scipy>=1.18.1",
+    "tdqm>=0.0.1",
     "toml>=0.10.2",
 ]
 
