@@ -11,6 +11,9 @@ from server.utils import make_address
 class Config:
     source: Any = None
 
+    # camera
+    camera_focus: int = 30
+
     # calibration
     homography_top_left: int = 0
     homography_top_right: int = 0

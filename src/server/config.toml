@@ -7,6 +7,9 @@ refine_edges = true
 decode_sharpening = 0.25
 debug = false
 
+[camera]
+camera_focus = 30
+
 [detecting]
 tag_size = 0.05
 
